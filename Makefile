@@ -33,6 +33,9 @@ ask: ## Ask a question (make ask Q="how do I book a cleaning?")
 test: ## Run ai-service unit tests
 	cd ai-service && pytest -q
 
+eval: ## Run the retrieval eval suite and write a scorecard
+	cd ai-service && python -m evals.run
+
 lint: ## Lint + type-check Python
 	cd ai-service && ruff check . && mypy .
 

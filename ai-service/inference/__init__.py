@@ -10,7 +10,6 @@ from __future__ import annotations
 from config import get_settings
 
 from .base import InferenceProvider
-from .gemini import GeminiProvider
 
 _provider: InferenceProvider | None = None
 
@@ -20,6 +19,8 @@ def get_provider() -> InferenceProvider:
     if _provider is None:
         name = get_settings().inference_provider.lower()
         if name == "gemini":
+            from .gemini import GeminiProvider
+
             _provider = GeminiProvider()
         elif name == "vllm":
             from .vllm import VLLMProvider

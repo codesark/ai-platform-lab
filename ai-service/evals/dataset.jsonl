@@ -1,0 +1,10 @@
+{"id": "ex-booking", "question": "How do I book a home cleaning service?", "expected_doc_ids": ["faq-booking"], "reference_answer": "Open the app, choose Home Cleaning, pick a time slot, and confirm."}
+{"id": "ex-cancel-policy", "question": "What is the cancellation policy and fee?", "expected_doc_ids": ["faq-cancel"], "reference_answer": "Free cancellation up to 4 hours before; a 20% fee applies within 4 hours."}
+{"id": "ex-cancel-late", "question": "Is there a fee for cancelling within 4 hours?", "expected_doc_ids": ["faq-cancel"], "reference_answer": "Yes, a 20% fee applies for cancellations within 4 hours."}
+{"id": "ex-payment", "question": "Which payment methods and cards are accepted?", "expected_doc_ids": ["faq-payment"], "reference_answer": "Credit and debit cards and UPI."}
+{"id": "ex-payment-upi", "question": "Can I pay with UPI or a debit card?", "expected_doc_ids": ["faq-payment"], "reference_answer": "Yes, debit cards and UPI are accepted."}
+{"id": "ex-reschedule", "question": "Can I reschedule my booking to a new slot?", "expected_doc_ids": ["faq-reschedule"], "reference_answer": "Yes, reschedule in the app at least 4 hours in advance, no fee."}
+{"id": "ex-coverage", "question": "Which cities does the service operate in?", "expected_doc_ids": ["faq-coverage"], "reference_answer": "A growing list of metro areas; the app shows live availability for your address."}
+{"id": "ex-rating", "question": "How does the rating and feedback system work?", "expected_doc_ids": ["faq-rating"], "reference_answer": "Rate 1-5 stars with optional feedback after each completed service."}
+{"id": "ex-safety", "question": "Are professionals background checked?", "expected_doc_ids": ["faq-safety"], "reference_answer": "Yes, every professional passes identity verification and a background check."}
+{"id": "ex-safety-id", "question": "Do professionals carry a ViHi ID I can verify?", "expected_doc_ids": ["faq-safety"], "reference_answer": "Yes, they carry a ViHi ID you can verify in the app on arrival."}
