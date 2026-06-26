@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ai-platform-lab — ask</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1rem; }
+    input { padding: .5rem; margin: .25rem 0; width: 100%; box-sizing: border-box; }
+    button { padding: .5rem 1rem; cursor: pointer; }
+    #output { white-space: pre-wrap; background: #f5f5f5; padding: 1rem; border-radius: 6px; min-height: 3rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>ai-platform-lab</h1>
+  <p>Ask a grounded question against the RAG corpus.</p>
+  <input id="apikey" type="password" placeholder="X-API-Key (from your .env)" />
+  <input id="question" type="text" placeholder="How do I book a home cleaning?" />
+  <button onclick="askQuestion()">Ask</button>
+  <div id="output"></div>
+
+  <script src="wasm_exec.js"></script>
+  <script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("app.wasm"), go.importObject)
+      .then((result) => go.run(result.instance))
+      .catch((err) => { document.getElementById("output").textContent = "WASM load failed: " + err; });
+  </script>
+</body>
+</html>

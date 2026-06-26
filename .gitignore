@@ -1,0 +1,69 @@
+# ─────────────────────────────────────────────────────────────
+# Secrets & credentials — NEVER commit these
+# ─────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*-key.json
+*_key.json
+service-account*.json
+credentials*.json
+kubeconfig
+*.kubeconfig
+
+# ─────────────────────────────────────────────────────────────
+# Private working docs — local only, never pushed
+# ─────────────────────────────────────────────────────────────
+_private/
+
+# ─────────────────────────────────────────────────────────────
+# Terraform
+# ─────────────────────────────────────────────────────────────
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+# NOTE: .terraform.lock.hcl SHOULD be committed — do not ignore it.
+
+# ─────────────────────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# ─────────────────────────────────────────────────────────────
+# Go / WASM build artifacts
+# ─────────────────────────────────────────────────────────────
+*.exe
+*.test
+*.out
+web/app.wasm
+web/wasm_exec.js
+
+# ─────────────────────────────────────────────────────────────
+# Local overrides, logs, OS & editor cruft
+# ─────────────────────────────────────────────────────────────
+docker-compose.override.yml
+*.local
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+node_modules/

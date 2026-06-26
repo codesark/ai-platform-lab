@@ -1,0 +1,20 @@
+# Tooling config for the ai-service. Runtime deps live in requirements.txt.
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI uses these callables as argument defaults by design.
+extend-immutable-calls = ["fastapi.Header", "fastapi.Depends", "fastapi.Query"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"

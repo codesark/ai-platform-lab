@@ -1,0 +1,17 @@
+.git
+.gitignore
+_private/
+.env
+.env.*
+!.env.example
+**/__pycache__/
+**/*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+web/app.wasm
+web/wasm_exec.js
+docs/
+*.md
