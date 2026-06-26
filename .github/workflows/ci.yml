@@ -27,6 +27,9 @@ jobs:
       - run: ruff format --check .
       - run: mypy .
       - run: pytest -q
+      - name: pip-audit (dependency vulnerabilities)
+        run: pip-audit
+        continue-on-error: true
 
   web:
     name: web (gofmt, wasm build)

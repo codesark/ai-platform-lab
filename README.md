@@ -39,6 +39,10 @@ make ask Q="How do I book a home cleaning?"
 Python deps locally (`python -m venv .venv && .venv/bin/pip install -r ai-service/requirements.txt`),
 since it talks to Postgres on `localhost:5432` and to the Gemini API.
 
+**Run fully offline (no API key):** set `INFERENCE_PROVIDER=local` in your `.env`. This uses a
+deterministic, dependency-free provider (hashing embeddings + a templated answer) — handy for local
+development and CI.
+
 The optional Go→WASM UI:
 
 ```bash

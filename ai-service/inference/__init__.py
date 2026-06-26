@@ -25,6 +25,10 @@ def get_provider() -> InferenceProvider:
             from .vllm import VLLMProvider
 
             _provider = VLLMProvider()
+        elif name == "local":
+            from .local import LocalProvider
+
+            _provider = LocalProvider()
         else:
             raise ValueError(f"unknown INFERENCE_PROVIDER: {name!r}")
     return _provider
