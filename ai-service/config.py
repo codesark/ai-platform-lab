@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # Gemini (hosted inference)
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash"
-    embedding_model: str = "text-embedding-004"
+    embedding_model: str = "gemini-embedding-001"
     embedding_dim: int = 768
 
     # Provider selection (alternate inference backend)
@@ -33,6 +33,11 @@ class Settings(BaseSettings):
 
     # Retrieval
     retrieval_top_k: int = 5
+
+    # Langfuse (tracing) — tracing no-ops unless both keys are set
+    langfuse_public_key: str = ""
+    langfuse_secret_key: str = ""
+    langfuse_host: str = "https://cloud.langfuse.com"
 
     @property
     def allowed_origins_list(self) -> list[str]:

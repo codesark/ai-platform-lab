@@ -18,9 +18,16 @@ class GeminiProvider(InferenceProvider):
         self._client = genai.Client(api_key=settings.gemini_api_key)
         self._model = settings.gemini_model
         self._embed_model = settings.embedding_model
+        self._embed_dim = settings.embedding_dim
 
     async def embed(self, text: str) -> list[float]:
-        resp = await self._client.aio.models.embed_content(model=self._embed_model, contents=text)
+        # gemini-embedding-001 defaults to 3072 dims; pin it to embedding_dim so the
+        # vectors match the VECTOR(...) column in schema.sql.
+        resp = await self._client.aio.models.embed_content(
+            model=self._embed_model,
+            contents=text,
+            config=types.EmbedContentConfig(output_dimensionality=self._embed_dim),
+        )
         embeddings = resp.embeddings
         if not embeddings or embeddings[0].values is None:
             raise RuntimeError("Gemini returned no embedding")

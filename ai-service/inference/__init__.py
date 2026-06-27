@@ -8,6 +8,7 @@ client code runs against either by flipping INFERENCE_PROVIDER.
 from __future__ import annotations
 
 from config import get_settings
+from observability.tracing import observe
 
 from .base import InferenceProvider
 
@@ -35,9 +36,11 @@ def get_provider() -> InferenceProvider:
     return _provider
 
 
+@observe(name="inference.embed")
 async def embed(text: str) -> list[float]:
     return await get_provider().embed(text)
 
 
+@observe(name="inference.generate")
 async def generate(prompt: str, **kwargs) -> str:
     return await get_provider().generate(prompt, **kwargs)

@@ -5,9 +5,11 @@ from __future__ import annotations
 from agent.tools.retrieve import retrieve_docs
 from inference import generate
 from models import Citation
+from observability.tracing import observe
 from rag.prompt import build_grounded_prompt
 
 
+@observe(name="rag.answer")
 async def answer_question(question: str, top_k: int) -> tuple[str, list[Citation]]:
     chunks = await retrieve_docs(question, top_k)
     prompt = build_grounded_prompt(question, chunks)

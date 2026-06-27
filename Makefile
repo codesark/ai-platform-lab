@@ -36,6 +36,9 @@ test: ## Run ai-service unit tests
 eval: ## Run the retrieval eval suite and write a scorecard
 	cd ai-service && python -m evals.run
 
+eval-llm: ## Run the eval incl. LLM-judge answer metrics (needs a real provider/key)
+	cd ai-service && EVAL_JUDGE=1 python -m evals.run
+
 lint: ## Lint + type-check Python
 	cd ai-service && ruff check . && mypy .
 
