@@ -39,6 +39,9 @@ eval: ## Run the retrieval eval suite and write a scorecard
 eval-llm: ## Run the eval incl. LLM-judge answer metrics (needs a real provider/key)
 	cd ai-service && EVAL_JUDGE=1 python -m evals.run
 
+mcp: ## Run the MCP server over stdio (needs the DB: docker compose up -d db)
+	cd ai-service && python -m mcp_server.server
+
 lint: ## Lint + type-check Python
 	cd ai-service && ruff check . && mypy .
 
